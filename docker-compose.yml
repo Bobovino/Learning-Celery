@@ -24,7 +24,7 @@ services:
     container_name: celery1
     build:
       context: ./dcelery
-    command: celery --app=dcelery worker -l INFO -Q celery,celery:1,celery:2,celery:3
+    command: celery --app=dcelery worker -l INFO -Q tasks
     volumes:
       - ./dcelery:/usr/src/app/
     environment:
@@ -34,6 +34,7 @@ services:
     depends_on:
       - redis
       - django
+
   
 
   #celery2:
